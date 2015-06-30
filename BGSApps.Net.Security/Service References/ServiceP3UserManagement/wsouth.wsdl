@@ -1,0 +1,995 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ConnTes">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConnTesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ConnTesResult" type="tns:ConnectionInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ConnectionInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="responType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="responText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getErrorMessage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xKode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getErrorMessageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="getErrorMessageResult" type="tns:ErrorInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ErrorInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="kode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="keterangan" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="responType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="responText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="cekValidasiPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="cekValidasiPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="cekValidasiPasswordResult" type="tns:PasswordInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PasswordInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="responType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="responText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="encript">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="encriptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="encriptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="decript">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="decriptResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="decriptResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="openBlokirAkun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="openBlokirAkunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="openBlokirAkunResult" type="tns:PasswordInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blokirAkun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="blokirAkunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="blokirAkunResult" type="tns:PasswordInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xOldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xNewPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xConfirmPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FormChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="FormChangePasswordResult" type="tns:PasswordInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MigrasiPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MigrasiPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MigrasiPasswordResult" type="tns:PasswordInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="valLoginAkun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xIDAPLIKASI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xUsername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="valLoginAkunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="valLoginAkunResult" type="tns:UserAkunInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="UserAkunInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="responType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="responText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="IDUSER" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="USERNAME" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAMA" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KELAS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAMA_JABATAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SANDI" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KD_CABANG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAMA_CABANG" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KD_DIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAMA_DIT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KD_SUB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAMA_SUB" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="KD_SEK" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NAMA_SEK" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HAKAKSES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HAKAKSES_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARENT_HAKAKSES" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PARENT_HAKAKSES_DESC" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMAIL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="STATUS" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="URL_CP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NORUT" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DGT" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="updateActLog">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xIDAPLIKASI" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xUSERNAME" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xActivity" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="updateActLogResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="encriptALLPassword">
+        <s:complexType />
+      </s:element>
+      <s:element name="encriptALLPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="encriptALLPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="kirimSMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xpassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xNoHP" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xText" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="kirimSMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kirimSMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="kirimEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xpassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xEmailPenerima" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xJudul" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xBody" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="kirimEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kirimEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="kirimEmailwithAttachment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xpassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xEmailPenerima" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xJudul" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xBody" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xAttachment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="kirimEmailwithAttachmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="kirimEmailwithAttachmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordKirimEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xUser" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xpasswordBaru" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ResetPasswordKirimEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ResetPasswordKirimEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DaftarPegawai">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prefixText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="DaftarPegawaiResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DaftarPegawaiResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifySESSION">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="keysid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="verifySESSIONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="verifySESSIONResult" type="tns:UserAkunInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DaftarUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="prefixText" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="count" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DaftarUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DaftarUserResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="valInfoAksesAkun">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xIDAplikasi" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xusername" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xpassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="valInfoAksesAkunResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="valInfoAksesAkunResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="xGetValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="param1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="param2" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ws_addResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="param3">
+            <s:complexType>
+              <s:sequence>
+                <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+              </s:sequence>
+            </s:complexType>
+          </s:element>
+        </s:sequence>
+      </s:complexType>
+      <s:element name="xGetValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="xGetValuesResult" type="tns:ws_addResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ConnTesSoapIn">
+    <wsdl:part name="parameters" element="tns:ConnTes" />
+  </wsdl:message>
+  <wsdl:message name="ConnTesSoapOut">
+    <wsdl:part name="parameters" element="tns:ConnTesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getErrorMessageSoapIn">
+    <wsdl:part name="parameters" element="tns:getErrorMessage" />
+  </wsdl:message>
+  <wsdl:message name="getErrorMessageSoapOut">
+    <wsdl:part name="parameters" element="tns:getErrorMessageResponse" />
+  </wsdl:message>
+  <wsdl:message name="cekValidasiPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:cekValidasiPassword" />
+  </wsdl:message>
+  <wsdl:message name="cekValidasiPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:cekValidasiPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="encriptSoapIn">
+    <wsdl:part name="parameters" element="tns:encript" />
+  </wsdl:message>
+  <wsdl:message name="encriptSoapOut">
+    <wsdl:part name="parameters" element="tns:encriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="decriptSoapIn">
+    <wsdl:part name="parameters" element="tns:decript" />
+  </wsdl:message>
+  <wsdl:message name="decriptSoapOut">
+    <wsdl:part name="parameters" element="tns:decriptResponse" />
+  </wsdl:message>
+  <wsdl:message name="openBlokirAkunSoapIn">
+    <wsdl:part name="parameters" element="tns:openBlokirAkun" />
+  </wsdl:message>
+  <wsdl:message name="openBlokirAkunSoapOut">
+    <wsdl:part name="parameters" element="tns:openBlokirAkunResponse" />
+  </wsdl:message>
+  <wsdl:message name="blokirAkunSoapIn">
+    <wsdl:part name="parameters" element="tns:blokirAkun" />
+  </wsdl:message>
+  <wsdl:message name="blokirAkunSoapOut">
+    <wsdl:part name="parameters" element="tns:blokirAkunResponse" />
+  </wsdl:message>
+  <wsdl:message name="FormChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:FormChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="FormChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:FormChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="MigrasiPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:MigrasiPassword" />
+  </wsdl:message>
+  <wsdl:message name="MigrasiPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:MigrasiPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="valLoginAkunSoapIn">
+    <wsdl:part name="parameters" element="tns:valLoginAkun" />
+  </wsdl:message>
+  <wsdl:message name="valLoginAkunSoapOut">
+    <wsdl:part name="parameters" element="tns:valLoginAkunResponse" />
+  </wsdl:message>
+  <wsdl:message name="updateActLogSoapIn">
+    <wsdl:part name="parameters" element="tns:updateActLog" />
+  </wsdl:message>
+  <wsdl:message name="updateActLogSoapOut">
+    <wsdl:part name="parameters" element="tns:updateActLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="encriptALLPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:encriptALLPassword" />
+  </wsdl:message>
+  <wsdl:message name="encriptALLPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:encriptALLPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="kirimSMSSoapIn">
+    <wsdl:part name="parameters" element="tns:kirimSMS" />
+  </wsdl:message>
+  <wsdl:message name="kirimSMSSoapOut">
+    <wsdl:part name="parameters" element="tns:kirimSMSResponse" />
+  </wsdl:message>
+  <wsdl:message name="kirimEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:kirimEmail" />
+  </wsdl:message>
+  <wsdl:message name="kirimEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:kirimEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="kirimEmailwithAttachmentSoapIn">
+    <wsdl:part name="parameters" element="tns:kirimEmailwithAttachment" />
+  </wsdl:message>
+  <wsdl:message name="kirimEmailwithAttachmentSoapOut">
+    <wsdl:part name="parameters" element="tns:kirimEmailwithAttachmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordKirimEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:ResetPasswordKirimEmail" />
+  </wsdl:message>
+  <wsdl:message name="ResetPasswordKirimEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:ResetPasswordKirimEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="DaftarPegawaiSoapIn">
+    <wsdl:part name="parameters" element="tns:DaftarPegawai" />
+  </wsdl:message>
+  <wsdl:message name="DaftarPegawaiSoapOut">
+    <wsdl:part name="parameters" element="tns:DaftarPegawaiResponse" />
+  </wsdl:message>
+  <wsdl:message name="verifySESSIONSoapIn">
+    <wsdl:part name="parameters" element="tns:verifySESSION" />
+  </wsdl:message>
+  <wsdl:message name="verifySESSIONSoapOut">
+    <wsdl:part name="parameters" element="tns:verifySESSIONResponse" />
+  </wsdl:message>
+  <wsdl:message name="DaftarUserSoapIn">
+    <wsdl:part name="parameters" element="tns:DaftarUser" />
+  </wsdl:message>
+  <wsdl:message name="DaftarUserSoapOut">
+    <wsdl:part name="parameters" element="tns:DaftarUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="valInfoAksesAkunSoapIn">
+    <wsdl:part name="parameters" element="tns:valInfoAksesAkun" />
+  </wsdl:message>
+  <wsdl:message name="valInfoAksesAkunSoapOut">
+    <wsdl:part name="parameters" element="tns:valInfoAksesAkunResponse" />
+  </wsdl:message>
+  <wsdl:message name="xGetValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:xGetValues" />
+  </wsdl:message>
+  <wsdl:message name="xGetValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:xGetValuesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="wsOuthSoap">
+    <wsdl:operation name="ConnTes">
+      <wsdl:input message="tns:ConnTesSoapIn" />
+      <wsdl:output message="tns:ConnTesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getErrorMessage">
+      <wsdl:input message="tns:getErrorMessageSoapIn" />
+      <wsdl:output message="tns:getErrorMessageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="cekValidasiPassword">
+      <wsdl:input message="tns:cekValidasiPasswordSoapIn" />
+      <wsdl:output message="tns:cekValidasiPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="encript">
+      <wsdl:input message="tns:encriptSoapIn" />
+      <wsdl:output message="tns:encriptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="decript">
+      <wsdl:input message="tns:decriptSoapIn" />
+      <wsdl:output message="tns:decriptSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="openBlokirAkun">
+      <wsdl:input message="tns:openBlokirAkunSoapIn" />
+      <wsdl:output message="tns:openBlokirAkunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="blokirAkun">
+      <wsdl:input message="tns:blokirAkunSoapIn" />
+      <wsdl:output message="tns:blokirAkunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FormChangePassword">
+      <wsdl:input message="tns:FormChangePasswordSoapIn" />
+      <wsdl:output message="tns:FormChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MigrasiPassword">
+      <wsdl:input message="tns:MigrasiPasswordSoapIn" />
+      <wsdl:output message="tns:MigrasiPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="valLoginAkun">
+      <wsdl:input message="tns:valLoginAkunSoapIn" />
+      <wsdl:output message="tns:valLoginAkunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="updateActLog">
+      <wsdl:input message="tns:updateActLogSoapIn" />
+      <wsdl:output message="tns:updateActLogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="encriptALLPassword">
+      <wsdl:input message="tns:encriptALLPasswordSoapIn" />
+      <wsdl:output message="tns:encriptALLPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="kirimSMS">
+      <wsdl:input message="tns:kirimSMSSoapIn" />
+      <wsdl:output message="tns:kirimSMSSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="kirimEmail">
+      <wsdl:input message="tns:kirimEmailSoapIn" />
+      <wsdl:output message="tns:kirimEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="kirimEmailwithAttachment">
+      <wsdl:input message="tns:kirimEmailwithAttachmentSoapIn" />
+      <wsdl:output message="tns:kirimEmailwithAttachmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordKirimEmail">
+      <wsdl:input message="tns:ResetPasswordKirimEmailSoapIn" />
+      <wsdl:output message="tns:ResetPasswordKirimEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DaftarPegawai">
+      <wsdl:input message="tns:DaftarPegawaiSoapIn" />
+      <wsdl:output message="tns:DaftarPegawaiSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="verifySESSION">
+      <wsdl:input message="tns:verifySESSIONSoapIn" />
+      <wsdl:output message="tns:verifySESSIONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DaftarUser">
+      <wsdl:input message="tns:DaftarUserSoapIn" />
+      <wsdl:output message="tns:DaftarUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="valInfoAksesAkun">
+      <wsdl:input message="tns:valInfoAksesAkunSoapIn" />
+      <wsdl:output message="tns:valInfoAksesAkunSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="xGetValues">
+      <wsdl:input message="tns:xGetValuesSoapIn" />
+      <wsdl:output message="tns:xGetValuesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="wsOuthSoap" type="tns:wsOuthSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConnTes">
+      <soap:operation soapAction="http://tempuri.org/ConnTes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getErrorMessage">
+      <soap:operation soapAction="http://tempuri.org/getErrorMessage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cekValidasiPassword">
+      <soap:operation soapAction="http://tempuri.org/cekValidasiPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encript">
+      <soap:operation soapAction="http://tempuri.org/encript" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="decript">
+      <soap:operation soapAction="http://tempuri.org/decript" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openBlokirAkun">
+      <soap:operation soapAction="http://tempuri.org/openBlokirAkun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blokirAkun">
+      <soap:operation soapAction="http://tempuri.org/blokirAkun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormChangePassword">
+      <soap:operation soapAction="http://tempuri.org/FormChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MigrasiPassword">
+      <soap:operation soapAction="http://tempuri.org/MigrasiPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="valLoginAkun">
+      <soap:operation soapAction="http://tempuri.org/valLoginAkun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateActLog">
+      <soap:operation soapAction="http://tempuri.org/updateActLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encriptALLPassword">
+      <soap:operation soapAction="http://tempuri.org/encriptALLPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimSMS">
+      <soap:operation soapAction="http://tempuri.org/kirimSMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimEmail">
+      <soap:operation soapAction="http://tempuri.org/kirimEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimEmailwithAttachment">
+      <soap:operation soapAction="http://tempuri.org/kirimEmailwithAttachment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordKirimEmail">
+      <soap:operation soapAction="http://tempuri.org/ResetPasswordKirimEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DaftarPegawai">
+      <soap:operation soapAction="http://tempuri.org/DaftarPegawai" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifySESSION">
+      <soap:operation soapAction="http://tempuri.org/verifySESSION" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DaftarUser">
+      <soap:operation soapAction="http://tempuri.org/DaftarUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="valInfoAksesAkun">
+      <soap:operation soapAction="http://tempuri.org/valInfoAksesAkun" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xGetValues">
+      <soap:operation soapAction="http://tempuri.org/xGetValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="wsOuthSoap12" type="tns:wsOuthSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ConnTes">
+      <soap12:operation soapAction="http://tempuri.org/ConnTes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getErrorMessage">
+      <soap12:operation soapAction="http://tempuri.org/getErrorMessage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="cekValidasiPassword">
+      <soap12:operation soapAction="http://tempuri.org/cekValidasiPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encript">
+      <soap12:operation soapAction="http://tempuri.org/encript" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="decript">
+      <soap12:operation soapAction="http://tempuri.org/decript" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="openBlokirAkun">
+      <soap12:operation soapAction="http://tempuri.org/openBlokirAkun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="blokirAkun">
+      <soap12:operation soapAction="http://tempuri.org/blokirAkun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FormChangePassword">
+      <soap12:operation soapAction="http://tempuri.org/FormChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MigrasiPassword">
+      <soap12:operation soapAction="http://tempuri.org/MigrasiPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="valLoginAkun">
+      <soap12:operation soapAction="http://tempuri.org/valLoginAkun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateActLog">
+      <soap12:operation soapAction="http://tempuri.org/updateActLog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encriptALLPassword">
+      <soap12:operation soapAction="http://tempuri.org/encriptALLPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimSMS">
+      <soap12:operation soapAction="http://tempuri.org/kirimSMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimEmail">
+      <soap12:operation soapAction="http://tempuri.org/kirimEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="kirimEmailwithAttachment">
+      <soap12:operation soapAction="http://tempuri.org/kirimEmailwithAttachment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ResetPasswordKirimEmail">
+      <soap12:operation soapAction="http://tempuri.org/ResetPasswordKirimEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DaftarPegawai">
+      <soap12:operation soapAction="http://tempuri.org/DaftarPegawai" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="verifySESSION">
+      <soap12:operation soapAction="http://tempuri.org/verifySESSION" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DaftarUser">
+      <soap12:operation soapAction="http://tempuri.org/DaftarUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="valInfoAksesAkun">
+      <soap12:operation soapAction="http://tempuri.org/valInfoAksesAkun" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="xGetValues">
+      <soap12:operation soapAction="http://tempuri.org/xGetValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="wsOuth">
+    <wsdl:port name="wsOuthSoap" binding="tns:wsOuthSoap">
+      <soap:address location="http://portalsi.pelindo.co.id/wsouth.asmx" />
+    </wsdl:port>
+    <wsdl:port name="wsOuthSoap12" binding="tns:wsOuthSoap12">
+      <soap12:address location="http://portalsi.pelindo.co.id/wsouth.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

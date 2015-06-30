@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Menu Setting</title>
+</head>
+<body>
+    <div ui-tree-handle>
+        <a class="btn btn-success btn-xs" data-nodrag ng-click="toggletree(this)"><span class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></span></a>
+        {{node.title}}
+        <a class="pull-right btn btn-primary btn-xs" data-nodrag ng-click="deleteMenu(node.id)" style="margin-right: 8px;"><span class="fa fa-times"></span></a>
+        <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="editModal(node)"><span class="fa fa-edit"></span></a>&nbsp;&nbsp;
+    </div>
+    <ol ng-model="node.Childs" ng-class="{hidden: collapsed}">
+        <li ng-repeat="node in node.items" ui-tree-node ng-include="'nodes_renderer.html'">
+        </li>
+    </ol>
+    <script type="text/ng-template" id="nodes_renderer.html">
+        <div ui-tree-handle>
+            <a class="btn btn-success btn-xs" data-nodrag ng-click="toggletree(this)"><span class="fa" ng-class="{'fa-chevron-right': collapsed, 'fa-chevron-down': !collapsed}"></span></a>
+            {{node.title}}
+            <a class="pull-right btn btn-primary btn-xs" ng-click="deleteMenu(node.id)" data-nodrag style="margin-right: 8px;"><span class="fa fa-times"></span></a>
+            <a class="pull-right btn btn-danger btn-xs" data-nodrag ng-click="editModal(node)"><span class="fa fa-edit"></span></a>&nbsp;&nbsp;
+        </div>
+        <ol ng-model="node.Childs" ng-class="{hidden: collapsed}">
+            <li ng-repeat="node in node.items" ui-tree-node ng-include="'nodes_renderer.html'">
+            </li>
+        </ol>
+    </script>
+</body>
+</html>

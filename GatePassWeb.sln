@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatePassWeb", "GatePassWeb\GatePassWeb.csproj", "{F17AB51D-1205-48BF-951C-D1A072845723}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGSApps.Net.Security", "BGSApps.Net.Security\BGSApps.Net.Security.csproj", "{A8C79D79-BEA8-4D7D-9C06-EF120151CF9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGSApps.Net.Model", "BGSApps.Net.Model\BGSApps.Net.Model.csproj", "{62DD4C98-1669-479F-A3DE-15303B914189}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGSApps.Net.DapperFactory", "BGSApps.Net.DapperFactory\BGSApps.Net.DapperFactory.csproj", "{A3860C38-ADD1-4912-9025-56C719CA72DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BGSApps.Net.Controller", "BGSApps.Net.Controller\BGSApps.Net.Controller.csproj", "{F9DF8F1E-732A-4D11-9969-DB7B0B5D8C4E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F17AB51D-1205-48BF-951C-D1A072845723}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F17AB51D-1205-48BF-951C-D1A072845723}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F17AB51D-1205-48BF-951C-D1A072845723}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F17AB51D-1205-48BF-951C-D1A072845723}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C79D79-BEA8-4D7D-9C06-EF120151CF9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C79D79-BEA8-4D7D-9C06-EF120151CF9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C79D79-BEA8-4D7D-9C06-EF120151CF9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C79D79-BEA8-4D7D-9C06-EF120151CF9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62DD4C98-1669-479F-A3DE-15303B914189}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62DD4C98-1669-479F-A3DE-15303B914189}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62DD4C98-1669-479F-A3DE-15303B914189}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62DD4C98-1669-479F-A3DE-15303B914189}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3860C38-ADD1-4912-9025-56C719CA72DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3860C38-ADD1-4912-9025-56C719CA72DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3860C38-ADD1-4912-9025-56C719CA72DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3860C38-ADD1-4912-9025-56C719CA72DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9DF8F1E-732A-4D11-9969-DB7B0B5D8C4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9DF8F1E-732A-4D11-9969-DB7B0B5D8C4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9DF8F1E-732A-4D11-9969-DB7B0B5D8C4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9DF8F1E-732A-4D11-9969-DB7B0B5D8C4E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
