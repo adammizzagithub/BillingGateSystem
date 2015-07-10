@@ -14,8 +14,36 @@ namespace GatePassWeb
         {
             string signOut = Request.QueryString["sLogOut"] == null ? "" : Request.QueryString["sLogOut"];
             /* LOG OUT MODE */
-            if (signOut.Equals("sgnout")) {
-                Session.Clear();
+            if (signOut.Equals("sgnout"))
+            {
+                if (IsPostBack)
+                {
+                    string username = Request.Form["txtusername"].ToString();
+                    string password = Request.Form["txtpassword"].ToString();
+                    bool canLogin = Pp3UserService.isValidCanLogin(username, password, this.Page);
+                    //bool canLogin = true;
+                    if (canLogin)
+                    {
+                        Session.Timeout = 120;
+                        Response.Redirect("/dashboard");
+                    }
+                    else
+                    {
+                        lblMessage.Text = "<div class='alert alert-danger alert-dismissable'>" +
+                       "<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>×</button>" +
+                       "<h4><i class='icon fa fa-ban'></i> User tidak memiliki Otorisasi</h4>" +
+                       "</div>";
+                    }
+                }
+                else
+                {
+                    int res = SessionSecurity.updateLastLoginUser(Session["UserName"].ToString());
+                    if (res == 1)
+                    {
+                        Session.Clear();
+                        signOut = "";
+                    }
+                }
             }
             if (Session["UserName"] != null)
             {
@@ -27,7 +55,7 @@ namespace GatePassWeb
                 {
                     string username = Request.Form["txtusername"].ToString();
                     string password = Request.Form["txtpassword"].ToString();
-                    bool canLogin = Pp3UserService.isValidUserPp3WebService(username, password, this.Page);
+                    bool canLogin = Pp3UserService.isValidCanLogin(username, password, this.Page);
                     //bool canLogin = true;
                     if (canLogin)
                     {

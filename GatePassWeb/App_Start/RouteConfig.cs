@@ -14,6 +14,7 @@ namespace GatePassWeb
         {
             routes.EnableFriendlyUrls();
             routes.MapPageRoute("", "auth-login", "~/Login.aspx");
+            routes.MapPageRoute("", "register-new-user", "~/RegisterUser.aspx");
             foreach (var config in SessionSecurity.getStartConfigRoute())
             {
                 if (config.Bgsm_Menu_Vurl != null)

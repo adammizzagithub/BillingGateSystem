@@ -27,7 +27,7 @@ namespace GatePassWeb
         {
             if (Session["UserName"] != null)
             {
-                LiteralMenuSideBar.Text = MasterPageAccessCtrl.getBindliteralMenu();
+                LiteralMenuSideBar.Text = MasterPageAccessCtrl.getBindliteralMenu(Convert.ToInt32(Session["HakAkses"]));
             }
         }
     }

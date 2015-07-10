@@ -43,8 +43,6 @@
 
             submitHandler: function (form) {
                 form.submit();
-                console.log($('#txtusername').val());
-                console.log($('#txtpassword').val());
             }
         });
     }

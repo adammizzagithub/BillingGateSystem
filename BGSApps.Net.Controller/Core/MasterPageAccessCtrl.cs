@@ -10,10 +10,10 @@ namespace BGSApps.Net.Controller.Core
 {
     public static class MasterPageAccessCtrl
     {
-        public static string getBindliteralMenu()
+        public static string getBindliteralMenu(int roleAsId)
         {
             string literalResult = string.Empty;
-            foreach (var menu in getAllMenu())
+            foreach (var menu in getAllMenu(roleAsId))
             {
                 if (menu.Childs.Count > 0)
                 {
@@ -49,12 +49,18 @@ namespace BGSApps.Net.Controller.Core
             literalResult += "</ul>";
             return literalResult;
         }
-        public static List<BgsmMenu> getAllMenu()
+        public static List<BgsmMenu> getAllMenu(int roleAsId)
         {
             List<BgsmMenu> menus = new List<BgsmMenu>();
             using (var database = new DapperLabFactory())
             {
-                menus = database.GetListWithParam<BgsmMenu>("select * from bgsm_menu where bgsm_menu_parent = :param1 order by bgsm_menu_urut asc", new { param1 = -1 }).ToList();
+                menus = database.GetListWithParam<BgsmMenu>("select BM.* from " +
+                                                            "BGSM_AKSES_CONTROL BAC," +
+                                                            "BGSM_MENU BM " +
+                                                            "where " +
+                                                            "BM.BGSM_MENU_ID = BAC.BGSM_CONTROL_MENUID AND " +
+                                                                "BAC.BGSM_CONTROL_AKSESID = :roleid AND BM.BGSM_MENU_PARENT = :parent " +
+                                                                "ORDER BY BM.BGSM_MENU_URUT asc", new { roleid = roleAsId, parent = -1 }).ToList();
                 getRecursiveMenu(menus);
             }
             return menus;

@@ -7,8 +7,10 @@
     <title>PELINDO III (Persero)</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="AdminLte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
+    <link href="AdminLte/additionalcss/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <%--<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />--%>
+    <%--<link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />--%>
+    <link href="AdminLte/additionalcss/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
@@ -55,29 +57,14 @@
                         <ul class="nav navbar-nav">
                             <%--<!-- User Account: style can be found in dropdown.less -->--%>
                             <li class="dropdown user user-menu">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-circle text-success"></i><span class="hidden-xs"><%=this.Session["Nama"]%></span>
+                                <a href="javascript" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-circle text-success"></i>&nbsp;<span class="hidden-xs"><%=this.Session["Nama"]%></span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li class="user-header">
-                                        <p>
-                                            <%=this.Session["UserName"]%><br />
-                                            <%=this.Session["NamaCabang"]%><br />
-                                            <small><%=this.Session["NamaDit"]%></small><br />
-                                            <small><%=this.Session["Email"]%></small>
-                                        </p>
-                                    </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body"></li>
-                                    <!-- Menu Footer-->
-                                    <li class="user-footer">
-                                        <div class="pull-left">
-                                        </div>
-                                        <div class="pull-right">
-                                            <a href="auth-login?sLogOut=sgnout" class="btn btn-default btn-flat">Keluar</a>
-                                        </div>
-                                    </li>
                                 </ul>
+                            </li>
+                            <li class="dropdown user user-menu">
+                                <a href="auth-login?sLogOut=sgnout" class="btn btn-danger btn-flat">Keluar</a>
                             </li>
                         </ul>
                     </div>

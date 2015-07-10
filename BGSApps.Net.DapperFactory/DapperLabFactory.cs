@@ -41,6 +41,18 @@ namespace BGSApps.Net.DapperFactory
             IEnumerable<T> list = connection.Query<T>(query, parameters);
             return list;
         }
+        public IEnumerable<T> GetListViewPerPage<T>(string tableName, string orderby, string wherecondition, object parameters, int offset, int limit)
+        {
+            var sql = "SELECT * FROM (SELECT T.*, ROW_NUMBER() OVER (ORDER BY @OrderBy) MYROW " +
+                    "FROM @TableName T " + wherecondition + ") " +
+                    "WHERE MYROW BETWEEN " + offset + " AND " + limit + "";
+            sql = sql.Replace("@TableName", tableName);
+            sql = sql.Replace("@OrderBy", orderby);
+            IEnumerable<T> list;
+            if (wherecondition.Equals("")) list = connection.Query<T>(sql);
+            else list = connection.Query<T>(sql, parameters);
+            return list;
+        }
         public int InsertRecord(object param, string table, string colom = "")
         {
             int success = 0;
@@ -52,7 +64,20 @@ namespace BGSApps.Net.DapperFactory
                     paramValue[i] = ":" + paramValue[i].Trim();
                 valParam = paramValue.Aggregate((current, next) => current + "," + next);
                 string stmt = "INSERT INTO " + table + "(" + colom + ") values (" + valParam + ")";
-                //valParam += i == (paramValue.Length - 1) ? paramValue[i] : paramValue[i] + ",";
+                connection.Execute(stmt, param);
+                success = 1;
+            }
+            catch
+            {
+                success = 0;
+            }
+            return success;
+        }
+        public int InsertMultipleRecord(string stmt, object[] param)
+        {
+            int success = 0;
+            try
+            {
                 connection.Execute(stmt, param);
                 success = 1;
             }

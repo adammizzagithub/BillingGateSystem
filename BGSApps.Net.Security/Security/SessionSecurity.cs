@@ -18,5 +18,14 @@ namespace BGSApps.Net.Security.Security
             }
             return routeStarts;
         }
+        public static int updateLastLoginUser(string username)
+        {
+            int res = 0;
+            using (var database = new DapperLabFactory())
+            {
+                res = database.UpdateOrDeleteRecord("update bgsm_user set bgsm_user_lastlogin = :lastlogin where bgsm_user_username=:username", new { lastlogin = DateTime.Now, username = username });
+            }
+            return res;
+        }
     }
 }

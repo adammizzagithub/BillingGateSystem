@@ -39,12 +39,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\BgsmAksesControl.cs" />
+    <Compile Include="Core\BgsmHakAkses.cs" />
+    <Compile Include="Core\BgsmUser.cs" />
+    <Compile Include="Core\HakAksesControlById.cs" />
+    <Compile Include="Core\VMasterCabang.cs" />
     <Compile Include="Menu\BgsmMenu.cs" />
     <Compile Include="Menu\JsonParamMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
     <Folder Include="Master\" />
     <Folder Include="Transaksi\" />
   </ItemGroup>
