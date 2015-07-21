@@ -13,6 +13,7 @@
     <link href="AdminLte/additionalcss/ionicons.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+
     <link href="AdminLte/plugins/iCheck/flat/blue.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/plugins/morris/morris.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/plugins/jvectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
@@ -21,7 +22,7 @@
     <link href="AdminLte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
-<body class="skin-blue sidebar-mini">
+<body class="skin-black sidebar-mini">
     <div class="wrapper">
         <%--BEGIN MAIN PLUGINS--%>
         <script src="AdminLte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -42,6 +43,12 @@
         <script src="AdminLte/plugins/angular-library/angular.js"></script>
         <script src="AdminLte/plugins/angular-library/angular-sanitize.min.js"></script>
         <script src="AdminLte/plugins/angular-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+        <script type="text/javascript" src="Script/Lockscreen.js"></script>
+        <script>
+            jQuery(document).ready(function () {
+                Lockscreen.init();
+            });
+        </script>
         <%--END SCRIPT PLUGINS--%>
         <asp:ContentPlaceHolder ID="BodyHeader" runat="server">
             <header class="main-header">
@@ -91,7 +98,7 @@
                 <div class="pull-right hidden-xs">
                     <b>Version</b> 1.0
                 </div>
-                <strong>Copyright &copy; Billing Gate System .</strong> All rights reserved.
+                <strong>Copyright &copy; 2015</strong> Adam Mizza Zamani, S.Kom
      
             </footer>
             <aside class="control-sidebar control-sidebar-dark">

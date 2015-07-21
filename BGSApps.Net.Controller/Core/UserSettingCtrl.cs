@@ -72,7 +72,7 @@ namespace BGSApps.Net.Controller.Core
                 listRec.iTotalDisplayRecords = apCounts;
                 for (int i = 0; i < apCounts; i++)
                 {
-                    string lastlog = apLists[i].Bgsm_User_Last_login.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : apLists[i].Bgsm_User_Last_login.ToString("dd/MM/yyyy HH:mm");
+                     string lastlog = apLists[i].Bgsm_User_Lastlogin.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : apLists[i].Bgsm_User_Lastlogin.ToString("dd/MM/yyyy HH:mm");
                     string action = string.Empty;
                     if (apLists[i].Bgsm_User_Isaktif == "Y")
                         action = "<a href='javascript:;' class='btn btn-primary btn-xs btn-edituser'><i class='fa fa-edit'></i> Edit</a> <a href='javascript:;' class='btn btn-danger btn-xs btn-activate' data-isaktif='N'><i class='fa fa-times'></i> Nonaktifkan</a>";
@@ -102,7 +102,7 @@ namespace BGSApps.Net.Controller.Core
                 listRec.iTotalDisplayRecords = apCountsSearch;
                 for (int i = 0; i < apCountsSearch; i++)
                 {
-                    string lastlog = apListsSearch[i].Bgsm_User_Last_login.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : apListsSearch[i].Bgsm_User_Last_login.ToString("dd/MM/yyyy HH:mm");
+                    string lastlog = apListsSearch[i].Bgsm_User_Lastlogin.ToString("dd/MM/yyyy") == "01/01/0001" ? "" : apListsSearch[i].Bgsm_User_Lastlogin.ToString("dd/MM/yyyy HH:mm");
                     string action = string.Empty;
                     if (apListsSearch[i].Bgsm_User_Isaktif == "Y")
                         action = "<a href='javascript:;' class='btn btn-primary btn-xs btn-edituser'><i class='fa fa-edit'></i> Edit</a> <a href='javascript:;' class='btn btn-danger btn-xs btn-activate' data-isaktif='N'><i class='fa fa-times'></i> Nonaktifkan</a>";
@@ -158,6 +158,7 @@ namespace BGSApps.Net.Controller.Core
             using (var database = new DapperLabFactory())
             {
                 count = database.GetScalarWithParam<int>("select count(*) from BGSM_USER where UPPER(BGSM_USER_CABANG) LIKE UPPER(:cabang) OR UPPER(BGSM_USER_NAMA) LIKE UPPER(:nama)", new { cabang = keyword, nama = keyword });
+                
             }
             return count;
         }

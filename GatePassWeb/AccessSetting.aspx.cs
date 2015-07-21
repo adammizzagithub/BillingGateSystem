@@ -15,6 +15,10 @@ namespace GatePassWeb
             {
                 Response.Redirect("/auth-login");
             }
+            if (Convert.ToBoolean(Session["islock"]) == true)
+            {
+                Response.Redirect("/lock-screen");
+            }
             else
             {
 

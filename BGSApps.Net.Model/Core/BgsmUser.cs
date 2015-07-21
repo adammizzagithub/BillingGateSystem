@@ -14,7 +14,7 @@ namespace BGSApps.Net.Model.Core
         public virtual string Bgsm_User_Cabang { get; set; }
         public virtual string Bgsm_User_Nama { get; set; }
         public virtual string Bgsm_User_Isaktif { get; set; }
-        public virtual DateTime Bgsm_User_Last_login { get; set; }
+        public virtual DateTime Bgsm_User_Lastlogin { get; set; }
         public virtual decimal Bgsm_User_Roleid { get; set; }
         public virtual string Bgsm_User_Rolename { get; set; }
         public virtual DateTime Creation_Date { get; set; }

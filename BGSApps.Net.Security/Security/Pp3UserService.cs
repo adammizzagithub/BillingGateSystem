@@ -87,5 +87,19 @@ namespace BGSApps.Net.Security.Security
             }
             return canLogin;
         }
+        public static bool cekPasswordWhenLock(string paswword)
+        {
+            bool validpswd = false;
+            using (MD5 hashmd5 = MD5.Create())
+            {
+                paswword = GetMd5Hash(hashmd5, paswword);
+            }
+            using (var database = new DapperLabFactory())
+            {
+                int cnt = database.GetScalarWithParam<int>("select count(*) as jum from bgsm_user where bgsm_user_username = :username AND bgsm_user_password = :pswd", new { username = HttpContext.Current.Session["UserName"], pswd = paswword });
+                validpswd = cnt > 0 ? true : false;
+            }
+            return validpswd;
+        }
     }
 }

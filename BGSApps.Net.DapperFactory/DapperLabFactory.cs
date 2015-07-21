@@ -5,12 +5,15 @@ using System.Text;
 using Dapper;
 using Oracle.DataAccess.Client;
 using System.Configuration;
+using System.Data;
+using System.Globalization;
 
 namespace BGSApps.Net.DapperFactory
 {
     public class DapperLabFactory : IDisposable
     {
         OracleConnection connection;
+
         public DapperLabFactory()
         {
             string connectionString = "Data Source=(DESCRIPTION="
@@ -20,6 +23,64 @@ namespace BGSApps.Net.DapperFactory
                 "User Id=" + ConfigurationManager.AppSettings["UserName"] + ";" +
                 "Password=" + ConfigurationManager.AppSettings["UserPassword"] + ";Min Pool Size=5;Max Pool Size=1100;";
             connection = new OracleConnection(connectionString);
+        }
+        public DataTable GetListViewSuperQuery(string TableName, string orderby, string Wherecondition, List<KeyValuePair<string, object>> parameters, int offset, int limit)
+        {
+            DataTable dtable = new DataTable();
+            OracleCommand cmd;
+            var sql = "SELECT * FROM (SELECT T.*, ROW_NUMBER() OVER (ORDER BY @OrderBy) MYROW " +
+                   "FROM @TableName T " + Wherecondition + ") " +
+                   "WHERE MYROW BETWEEN :OFFSET AND :LIMIT";
+            sql = sql.Replace("@TableName", TableName);
+            sql = sql.Replace("@OrderBy", orderby);
+            try
+            {
+                connection.Open();
+                cmd = new OracleCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+                cmd.BindByName = true;
+                foreach (var elem in parameters)
+                    cmd.Parameters.Add(new OracleParameter(elem.Key, elem.Value));
+                cmd.Parameters.Add(new OracleParameter("OFFSET", offset));
+                cmd.Parameters.Add(new OracleParameter("LIMIT", limit));
+                OracleDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    dtable.Load(rdr);
+                }
+                rdr.Close();
+            }
+            catch
+            {
+                connection.Close();
+            }
+            return dtable;
+        }
+        public decimal GetCountViewSuperQuery(string TableName, string Wherecondition, List<KeyValuePair<string, object>> parameters)
+        {
+            decimal count = 0;
+            OracleCommand cmd;
+            var sql = "SELECT COUNT(*) FROM @TableName " + Wherecondition + "";
+            sql = sql.Replace("@TableName", TableName);
+            try
+            {
+                connection.Open();
+                cmd = new OracleCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+                cmd.BindByName = true;
+                foreach (var elem in parameters)
+                    cmd.Parameters.Add(new OracleParameter(elem.Key, elem.Value));
+                count = Convert.ToDecimal(cmd.ExecuteScalar());
+            }
+            catch
+            {
+                connection.Close();
+            }
+            return count;
         }
         public T GetScalarNoParam<T>(string query)
         {
@@ -49,10 +110,13 @@ namespace BGSApps.Net.DapperFactory
             sql = sql.Replace("@TableName", tableName);
             sql = sql.Replace("@OrderBy", orderby);
             IEnumerable<T> list;
-            if (wherecondition.Equals("")) list = connection.Query<T>(sql);
-            else list = connection.Query<T>(sql, parameters);
+            if (wherecondition.Equals(""))
+                list = connection.Query<T>(sql);
+            else
+                list = connection.Query<T>(sql, parameters);
             return list;
         }
+
         public int InsertRecord(object param, string table, string colom = "")
         {
             int success = 0;

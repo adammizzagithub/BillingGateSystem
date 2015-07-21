@@ -164,6 +164,7 @@
     <Content Include="AdminLte\dist\img\icons.png" />
     <Content Include="AdminLte\dist\img\photo1.png" />
     <Content Include="AdminLte\dist\img\photo2.png" />
+    <Content Include="AdminLte\dist\img\user-lock.png" />
     <Content Include="AdminLte\dist\img\user1-128x128.jpg" />
     <Content Include="AdminLte\dist\img\user2-160x160.jpg" />
     <Content Include="AdminLte\dist\img\user3-128x128.jpg" />
@@ -220,6 +221,8 @@
     <Content Include="AdminLte\plugins\angular-library\angular-ui-tree.js" />
     <Content Include="AdminLte\plugins\angular-library\angular.js" />
     <Content Include="AdminLte\plugins\angular-library\jquery.webui-popover.js" />
+    <Content Include="AdminLte\plugins\angularjs-table\ng-table.css" />
+    <Content Include="AdminLte\plugins\angularjs-table\ng-table.js" />
     <Content Include="AdminLte\plugins\bootbox.min.js" />
     <Content Include="AdminLte\plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="AdminLte\plugins\bootstrap-slider\slider.css" />
@@ -921,16 +924,31 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Html\EditMenuSetting.html" />
+    <Content Include="Html\Test.html" />
     <Content Include="Html\TreeView.html" />
+    <Content Include="LockScreen.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Master\GeneralRefMstrPage.aspx" />
+    <Content Include="Master\KendaraanMstrPage.aspx" />
+    <Content Include="Master\PegOprMstrPage.aspx" />
+    <Content Include="Master\TarifMstrPage.aspx" />
     <Content Include="MenuSetting.aspx" />
     <Content Include="packages.config" />
     <Content Include="RegisterUser.aspx" />
+    <Content Include="Script\Lockscreen.js" />
     <Content Include="Script\Login.js" />
+    <Content Include="Script\Master\GeneralRef.js" />
+    <Content Include="Script\Master\Kendaraan.js" />
+    <Content Include="Script\Master\PegawaiOperator.js" />
+    <Content Include="Script\Master\Tarif.js" />
     <Content Include="Script\Setting\AccessSetting.js" />
     <Content Include="Script\Setting\MenuSetting.js" />
     <Content Include="Script\Setting\RegisterUser.js" />
     <Content Include="Script\Setting\UserSetting.js" />
+    <Content Include="Service\Master\GeneralReferensi\MstrGeneralRef.asmx" />
+    <Content Include="Service\Master\Kendaraan\MstrKendaraan.asmx" />
+    <Content Include="Service\Master\PegawaiOperator\MstrPegOpr.asmx" />
+    <Content Include="Service\Master\Tarif\MstrTarif.asmx" />
     <Content Include="Service\Setting\AccessSettingSvc.asmx" />
     <Content Include="Service\Setting\MenuSettingSvc.asmx" />
     <Content Include="Service\Setting\RegisterUserSvc.asmx" />
@@ -1058,6 +1076,7 @@
     <Content Include="AdminLte\plugins\select2\select2.jquery.json" />
     <Content Include="AdminLte\plugins\select2\select2_locale_en.js.template" />
     <Content Include="Service\Setting\UserTable.ashx" />
+    <Content Include="AdminLte\plugins\angularjs-table\ng-table.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1085,12 +1104,47 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="LockScreen.aspx.cs">
+      <DependentUpon>LockScreen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LockScreen.aspx.designer.cs">
+      <DependentUpon>LockScreen.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\GeneralRefMstrPage.aspx.cs">
+      <DependentUpon>GeneralRefMstrPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\GeneralRefMstrPage.aspx.designer.cs">
+      <DependentUpon>GeneralRefMstrPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\KendaraanMstrPage.aspx.cs">
+      <DependentUpon>KendaraanMstrPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\KendaraanMstrPage.aspx.designer.cs">
+      <DependentUpon>KendaraanMstrPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\PegOprMstrPage.aspx.cs">
+      <DependentUpon>PegOprMstrPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\PegOprMstrPage.aspx.designer.cs">
+      <DependentUpon>PegOprMstrPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Master\TarifMstrPage.aspx.cs">
+      <DependentUpon>TarifMstrPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Master\TarifMstrPage.aspx.designer.cs">
+      <DependentUpon>TarifMstrPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MenuSetting.aspx.cs">
       <DependentUpon>MenuSetting.aspx</DependentUpon>
@@ -1106,6 +1160,22 @@
     </Compile>
     <Compile Include="RegisterUser.aspx.designer.cs">
       <DependentUpon>RegisterUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Master\GeneralReferensi\MstrGeneralRef.asmx.cs">
+      <DependentUpon>MstrGeneralRef.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\Master\Kendaraan\MstrKendaraan.asmx.cs">
+      <DependentUpon>MstrKendaraan.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\Master\PegawaiOperator\MstrPegOpr.asmx.cs">
+      <DependentUpon>MstrPegOpr.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Service\Master\Tarif\MstrTarif.asmx.cs">
+      <DependentUpon>MstrTarif.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Service\Setting\AccessSettingSvc.asmx.cs">
       <DependentUpon>AccessSettingSvc.asmx</DependentUpon>
@@ -1157,9 +1227,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Script\Master\" />
     <Folder Include="Script\Transaksi\" />
-    <Folder Include="Service\Master\" />
     <Folder Include="Service\Transaksi\" />
   </ItemGroup>
   <ItemGroup>

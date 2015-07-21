@@ -61,22 +61,28 @@ namespace BGSApps.Net.Controller.Core
                                                             "BM.BGSM_MENU_ID = BAC.BGSM_CONTROL_MENUID AND " +
                                                                 "BAC.BGSM_CONTROL_AKSESID = :roleid AND BM.BGSM_MENU_PARENT = :parent " +
                                                                 "ORDER BY BM.BGSM_MENU_URUT asc", new { roleid = roleAsId, parent = -1 }).ToList();
-                getRecursiveMenu(menus);
+                getRecursiveMenu(roleAsId, menus);
             }
             return menus;
         }
-        public static void getRecursiveMenu(List<BgsmMenu> menus)
+        public static void getRecursiveMenu(int roleAsId, List<BgsmMenu> menus)
         {
             foreach (var item in menus)
             {
                 List<BgsmMenu> nestedChilds = new List<BgsmMenu>();
                 using (var database = new DapperLabFactory())
                 {
-                    nestedChilds = database.GetListWithParam<BgsmMenu>("select * from bgsm_menu where bgsm_menu_parent = :param1 order by bgsm_menu_urut asc", new { param1 = item.Bgsm_Menu_Id }).ToList();
+                    nestedChilds = database.GetListWithParam<BgsmMenu>("select BM.* from " +
+                                                            "BGSM_AKSES_CONTROL BAC," +
+                                                            "BGSM_MENU BM " +
+                                                            "where " +
+                                                            "BM.BGSM_MENU_ID = BAC.BGSM_CONTROL_MENUID AND " +
+                                                                "BAC.BGSM_CONTROL_AKSESID = :roleid AND BM.BGSM_MENU_PARENT = :parent " +
+                                                                "ORDER BY BM.BGSM_MENU_URUT asc", new { roleid = roleAsId, parent = item.Bgsm_Menu_Id }).ToList();
                 }
                 item.Childs = nestedChilds;
                 if (item.Childs.Count != 0)
-                    getRecursiveMenu(item.Childs);
+                    getRecursiveMenu(roleAsId, item.Childs);
             }
         }
     }

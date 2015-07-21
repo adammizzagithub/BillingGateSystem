@@ -40,25 +40,26 @@
                             </div>
                         </div>
                         <div class="box-body" style="display: block;">
-                            <table class="table table-bordered table-hover" id="tbl-user">
-                                <thead>
-                                    <tr>
-                                        <th style="display: none;">User Id</th>
-                                        <th>Username</th>
-                                        <th style="display: none;">Kode Cabang</th>
-                                        <th>Cabang</th>
-                                        <th>Nama</th>
-                                        <th>Last login</th>
-                                        <th style="display: none;">Role Id</th>
-                                        <th>Role</th>
-                                        <th></th>
-                                        <th style="display: none;">ISAKTIF</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                </tbody>
-                            </table>
-
+                            <div class="table-responsive table-scrollable">
+                                <table class="table table-bordered table-hover" id="tbl-user">
+                                    <thead>
+                                        <tr>
+                                            <th style="display: none;">User Id</th>
+                                            <th>Username</th>
+                                            <th style="display: none;">Kode Cabang</th>
+                                            <th>Cabang</th>
+                                            <th>Nama</th>
+                                            <th>Last login</th>
+                                            <th style="display: none;">Role Id</th>
+                                            <th>Role</th>
+                                            <th></th>
+                                            <th style="display: none;">ISAKTIF</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         <div class="box-footer" style="display: block;">
                         </div>

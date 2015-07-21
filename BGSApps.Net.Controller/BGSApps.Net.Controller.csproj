@@ -49,6 +49,10 @@
     <Compile Include="Core\RegisterUserCtrl.cs" />
     <Compile Include="Core\UserSettingCtrl.cs" />
     <Compile Include="Helper\HelperFactory.cs" />
+    <Compile Include="Master\GeneralRefCtrl.cs" />
+    <Compile Include="Master\KendaraanCtrl.cs" />
+    <Compile Include="Master\PegawaiOperatorCtrl.cs" />
+    <Compile Include="Master\TarifCtrl.cs" />
     <Compile Include="Menu\MenuSettingCtrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -63,7 +67,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Master\" />
     <Folder Include="Transaksi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

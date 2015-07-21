@@ -9,7 +9,6 @@ using System.Web.Script.Serialization;
 using System.Web.Script.Services;
 using BGSApps.Net.Controller.Core;
 
-
 namespace GatePassWeb.Service.Setting
 {
     /// <summary>

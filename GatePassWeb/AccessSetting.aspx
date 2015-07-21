@@ -59,7 +59,7 @@
                         <div class="box-body" style="display: block;">
                             <div class="row">
                                 <div class="col-xs-12" ng-show="viewcaption === 0">
-                                    <div class="table-responsive">
+                                    <div class="table-responsive table-scrollable">
                                         <table class="table table-hover table-striped">
                                             <tbody>
                                                 <tr>

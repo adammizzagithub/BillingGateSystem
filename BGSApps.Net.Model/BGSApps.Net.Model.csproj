@@ -39,17 +39,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Additional\JsonParamsTable.cs" />
+    <Compile Include="Additional\QueryStringTable.cs" />
     <Compile Include="Core\BgsmAksesControl.cs" />
     <Compile Include="Core\BgsmHakAkses.cs" />
     <Compile Include="Core\BgsmUser.cs" />
     <Compile Include="Core\HakAksesControlById.cs" />
     <Compile Include="Core\VMasterCabang.cs" />
+    <Compile Include="Master\BgsmGeneralRef.cs" />
+    <Compile Include="Master\BgsmGeneralRefDetail.cs" />
+    <Compile Include="Master\BgsmJnsKend.cs" />
+    <Compile Include="Master\BgsmMstTarif.cs" />
+    <Compile Include="Master\BgsmMstTarifD.cs" />
+    <Compile Include="Master\BgsmPegOpr.cs" />
     <Compile Include="Menu\BgsmMenu.cs" />
     <Compile Include="Menu\JsonParamMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Master\" />
     <Folder Include="Transaksi\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
