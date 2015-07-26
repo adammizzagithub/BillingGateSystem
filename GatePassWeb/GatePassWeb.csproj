@@ -935,6 +935,7 @@
     <Content Include="MenuSetting.aspx" />
     <Content Include="packages.config" />
     <Content Include="RegisterUser.aspx" />
+    <Content Include="Script\appModule.js" />
     <Content Include="Script\Lockscreen.js" />
     <Content Include="Script\Login.js" />
     <Content Include="Script\Master\GeneralRef.js" />

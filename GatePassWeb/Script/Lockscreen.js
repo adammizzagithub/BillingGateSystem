@@ -1,6 +1,6 @@
 ﻿var Lockscreen = function () {
     var handleLockScreen = function () {
-        var IDLE_TIMEOUT = 10; //seconds
+        var IDLE_TIMEOUT = 60; //seconds
         var _idleSecondsTimer = null;
         var _idleSecondsCounter = 0;
 

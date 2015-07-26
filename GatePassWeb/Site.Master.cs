@@ -18,11 +18,18 @@ namespace GatePassWeb
 
         protected void master_Page_PreLoad(object sender, EventArgs e)
         {
-
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] == null)
+            {
+                Response.Redirect("/auth-login");
+            }
+            if (Convert.ToBoolean(Session["islock"]) == true)
+            {
+                Response.Redirect("/lock-screen");
+            }
             if (Session["UserName"] != null)
             {
                 LiteralMenuSideBar.Text = MasterPageAccessCtrl.getBindliteralMenu(Convert.ToInt32(Session["HakAkses"]));

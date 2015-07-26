@@ -20,6 +20,52 @@
     <link href="AdminLte/plugins/datepicker/datepicker3.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="AdminLte/additionalcss/angular-ui-tree.min.css" rel="stylesheet" type="text/css" />
+    <link href="AdminLte/plugins/jquery-nestable/jquery.nestable.css" rel="stylesheet" type="text/css" />
+    <link href="AdminLte/plugins/data-tables/DT_bootstrap.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        .btn {
+            margin-right: 8px;
+        }
+
+        .angular-ui-tree-handle {
+            background: #f8faff;
+            border: 1px solid #dae2ea;
+            color: #7c9eb2;
+            padding: 10px 10px;
+        }
+
+            .angular-ui-tree-handle:hover {
+                color: #438eb9;
+                background: #f4f6f7;
+                border-color: #dce2e8;
+            }
+
+        .angular-ui-tree-placeholder {
+            background: #f0f9ff;
+            border: 2px dashed #bed2db;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        .notView {
+            display: none;
+        }
+
+        .alignRight {
+            text-align: right;
+        }
+
+        .alignLeft {
+            text-align: left;
+        }
+
+        .alignCenter {
+            text-align: center;
+        }
+    </style>
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body class="skin-black sidebar-mini">
@@ -36,13 +82,26 @@
         <script src="AdminLte/plugins/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="AdminLte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="text/javascript"></script>
         <script src="AdminLte/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
-        <script src='AdminLte/plugins/fastclick/fastclick.min.js'></script>
         <script src="AdminLte/dist/js/app.min.js" type="text/javascript"></script>
-        <script src="AdminLte/dist/js/AdminLte/pages/dashboard.js" type="text/javascript"></script>
         <script src="AdminLte/dist/js/demo.js" type="text/javascript"></script>
-        <script src="AdminLte/plugins/angular-library/angular.js"></script>
-        <script src="AdminLte/plugins/angular-library/angular-sanitize.min.js"></script>
-        <script src="AdminLte/plugins/angular-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+        <script src="AdminLte/dist/js/AdminLte/pages/dashboard.js" type="text/javascript"></script>
+        <script type="text/javascript" src="AdminLte/plugins/angular-library/angular.js"></script>
+        <script type="text/javascript" src="AdminLte/plugins/angular-library/angular-sanitize.min.js"></script>
+        <script type="text/javascript" src="AdminLte/plugins/angular-library/angular-route.min.js"></script>
+        <script type="text/javascript" src="AdminLte/plugins/angular-bootstrap/ui-bootstrap-tpls-0.10.0.min.js"></script>
+        <script type="text/javascript" src="AdminLte/plugins/angular-library/angular-ui-tree.js"></script>
+
+        <%--MAIN MODULE--%>
+        <%--<script type="text/javascript" src="Script/appModule.js"></script>--%>
+        <%--SETTING CONTROLLER--%>
+        <%--<script type="text/javascript" src="Script/Setting/AccessSetting.js"></script>
+        <script type="text/javascript" src="Script/Setting/MenuSetting.js"></script>
+        <script type="text/javascript" src="Script/Setting/UserSetting.js"></script>--%>
+        <%--MASTER CONTROLLER--%>
+        <%-- <script type="text/javascript" src="Script/Master/GeneralRef.js"></script>
+        <script type="text/javascript" src="Script/Master/Kendaraan.js"></script>
+        <script type="text/javascript" src="Script/Master/PegawaiOperator.js"></script>
+        <script type="text/javascript" src="Script/Master/Tarif.js"></script>--%>
         <script type="text/javascript" src="Script/Lockscreen.js"></script>
         <script>
             jQuery(document).ready(function () {
@@ -92,7 +151,6 @@
         </asp:ContentPlaceHolder>
         <asp:ContentPlaceHolder ID="BodyContent" runat="server">
         </asp:ContentPlaceHolder>
-
         <asp:ContentPlaceHolder ID="BodyFooter" runat="server">
             <footer class="main-footer">
                 <div class="pull-right hidden-xs">
@@ -273,7 +331,6 @@
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
                                     Delete chat history
-                 
                                 <a href="javascript::;" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
                                 </label>
                             </div>
@@ -282,8 +339,8 @@
                 </div>
             </aside>
             <div class='control-sidebar-bg'></div>
-        </asp:ContentPlaceHolder>
 
+        </asp:ContentPlaceHolder>
     </div>
 
 </body>

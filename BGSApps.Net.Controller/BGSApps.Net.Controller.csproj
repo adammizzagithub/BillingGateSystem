@@ -55,6 +55,7 @@
     <Compile Include="Master\TarifCtrl.cs" />
     <Compile Include="Menu\MenuSettingCtrl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Transaksi\PasStikerCtrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BGSApps.Net.DapperFactory\BGSApps.Net.DapperFactory.csproj">
@@ -66,9 +67,7 @@
       <Name>BGSApps.Net.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Transaksi\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -1,6 +1,6 @@
-﻿var AccessSettingApp = angular.module('AccessSettingApp', ['ngSanitize', 'ui.bootstrap', 'ui.tree']);
+﻿var AccessSettingapp = angular.module('AccessSettingApp', ['ngSanitize', 'ui.bootstrap', 'ui.tree']);
 
-AccessSettingApp.directive('compile', function ($compile) {
+AccessSettingapp.directive('compile', function ($compile) {
     return function (scope, element, attrs) {
         scope.$watch(
           function (scope) {
@@ -21,7 +21,7 @@ AccessSettingApp.directive('compile', function ($compile) {
       );
     };
 });
-AccessSettingApp.directive('ngEnter', function () {
+AccessSettingapp.directive('ngEnter', function () {
     return function (scope, element, attrs) {
         element.bind("keydown keypress", function (event) {
             if (event.which === 13) {
@@ -33,7 +33,7 @@ AccessSettingApp.directive('ngEnter', function () {
         });
     };
 });
-AccessSettingApp.controller('AccessSettingController', function ($scope, $modal, $sce, $compile) {
+AccessSettingapp.controller('AccessSettingController', function ($scope, $modal, $sce, $compile) {
     $scope.baseURL = $('#wsurl').val();
     $scope.userId = $('#userId').val();
     $scope.KodeCabang = $('#KodeCabang').val();

@@ -25,7 +25,7 @@ namespace GatePassWeb
                     if (canLogin)
                     {
                         Session.Timeout = 120;
-                        Response.Redirect("/dashboard");
+                        Response.Redirect("/main-site");
                     }
                     else
                     {
@@ -47,7 +47,7 @@ namespace GatePassWeb
             }
             if (Session["UserName"] != null)
             {
-                Response.Redirect("/dashboard");
+                Response.Redirect("/main-site");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace GatePassWeb
                     if (canLogin)
                     {
                         Session.Timeout = 120;
-                        Response.Redirect("/dashboard");
+                        Response.Redirect("/main-site");
                     }
                     else
                     {

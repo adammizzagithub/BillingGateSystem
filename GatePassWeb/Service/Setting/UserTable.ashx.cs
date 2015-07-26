@@ -11,7 +11,6 @@ namespace GatePassWeb.Service.Setting
 
         public void ProcessRequest(HttpContext context)
         {
-            int iTotalRecords = 200;
             int iDisplayLength = Convert.ToInt32(context.Request.QueryString["iDisplayLength"]);
             int iDisplayStart = Convert.ToInt32(context.Request.QueryString["iDisplayStart"]);
             string sSearch = context.Request.QueryString["sSearch"];

@@ -41,6 +41,7 @@ namespace BGSApps.Net.DapperFactory
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.Text;
                 cmd.BindByName = true;
+
                 foreach (var elem in parameters)
                     cmd.Parameters.Add(new OracleParameter(elem.Key, elem.Value));
                 cmd.Parameters.Add(new OracleParameter("OFFSET", offset));
@@ -116,7 +117,6 @@ namespace BGSApps.Net.DapperFactory
                 list = connection.Query<T>(sql, parameters);
             return list;
         }
-
         public int InsertRecord(object param, string table, string colom = "")
         {
             int success = 0;
@@ -179,6 +179,79 @@ namespace BGSApps.Net.DapperFactory
             }
             return success;
         }
+        #region ADDITIONAL GROUP BY
+        public DataTable GroupByListView(string columnToGroup, string table, string Wherecondition, List<KeyValuePair<string, object>> parameters)
+        {
+            DataTable dtable = new DataTable();
+            OracleCommand cmd;
+            var sql = "SELECT * FROM (SELECT T.*, ROW_NUMBER() OVER (ORDER BY @COLUMNGROUP ASC) MYROW FROM (select " +
+                           "@COLUMNGROUP," +
+                           "COUNT(*) jumlah " +
+                        "from " +
+                        "@TABLE " +
+                        "" + Wherecondition + "" +
+                        "group by @COLUMNGROUP) T) WHERE MYROW BETWEEN :OFFSET AND :LIMIT";
+
+            sql = sql.Replace("@TABLE", table);
+            sql = sql.Replace("@COLUMNGROUP", columnToGroup);
+            try
+            {
+                connection.Open();
+                cmd = new OracleCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+                cmd.BindByName = true;
+
+                foreach (var elem in parameters)
+                    cmd.Parameters.Add(new OracleParameter(elem.Key, elem.Value));
+                cmd.Parameters.Add(new OracleParameter("OFFSET", 1));
+                cmd.Parameters.Add(new OracleParameter("LIMIT", 10));
+                OracleDataReader rdr = cmd.ExecuteReader();
+                if (rdr.HasRows)
+                {
+                    dtable.Load(rdr);
+                }
+                rdr.Close();
+            }
+            catch
+            {
+                connection.Close();
+            }
+            return dtable;
+        }
+        public decimal GroupByCount(string columnToGroup, string table, string Wherecondition, List<KeyValuePair<string, object>> parameters)
+        {
+            decimal count = 0;
+            OracleCommand cmd;
+            var sql = "SELECT COUNT(*) FROM (select " +
+                           "@COLUMNGROUP," +
+                           "COUNT(*) jumlah " +
+                        "from " +
+                        "@TableName " +
+                        "" + Wherecondition + " " +
+                        "group by @COLUMNGROUP)";
+            sql = sql.Replace("@TableName", table);
+            sql = sql.Replace("@COLUMNGROUP", columnToGroup);
+            try
+            {
+                connection.Open();
+                cmd = new OracleCommand();
+                cmd.Connection = connection;
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.Text;
+                cmd.BindByName = true;
+                foreach (var elem in parameters)
+                    cmd.Parameters.Add(new OracleParameter(elem.Key, elem.Value));
+                count = Convert.ToDecimal(cmd.ExecuteScalar());
+            }
+            catch
+            {
+                connection.Close();
+            }
+            return count;
+        }
+        #endregion
         public void Dispose()
         {
             try

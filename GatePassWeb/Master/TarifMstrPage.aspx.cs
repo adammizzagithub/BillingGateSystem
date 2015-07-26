@@ -11,18 +11,7 @@ namespace GatePassWeb.Master
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["UserName"] == null)
-            {
-                Response.Redirect("/auth-login");
-            }
-            if (Convert.ToBoolean(Session["islock"]) == true)
-            {
-                Response.Redirect("/lock-screen");
-            }
-            else
-            {
-
-            }
+          
         }
     }
 }
