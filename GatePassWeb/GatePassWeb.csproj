@@ -107,7 +107,11 @@
     <Content Include="AdminLte\additionalcss\angular-ui-tree.min.css" />
     <Content Include="AdminLte\additionalcss\animate.css" />
     <Content Include="AdminLte\additionalcss\autocomplete-ajax.css" />
+    <Content Include="AdminLte\additionalcss\customize-style.css" />
     <Content Include="AdminLte\additionalcss\font-awesome.min.css" />
+    <Content Include="AdminLte\additionalcss\font-awesome\css\font-awesome.css" />
+    <Content Include="AdminLte\additionalcss\font-awesome\css\font-awesome.min.css" />
+    <Content Include="AdminLte\additionalcss\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="AdminLte\additionalcss\ionicons.min.css" />
     <Content Include="AdminLte\additionalcss\jquery.qtip.min.css" />
     <Content Include="AdminLte\additionalcss\jquery.webui-popover.css" />
@@ -146,6 +150,10 @@
     <Content Include="AdminLte\dist\css\skins\skin-yellow.min.css" />
     <Content Include="AdminLte\dist\css\skins\_all-skins.css" />
     <Content Include="AdminLte\dist\css\skins\_all-skins.min.css" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\generator_config.txt" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\kaushanscript-regular-demo.html" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\kaushanscript-regular-webfont.svg" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\stylesheet.css" />
     <Content Include="AdminLte\dist\img\avatar.png" />
     <Content Include="AdminLte\dist\img\avatar04.png" />
     <Content Include="AdminLte\dist\img\avatar2.png" />
@@ -181,6 +189,8 @@
     <Content Include="AdminLte\img\busy.gif" />
     <Content Include="AdminLte\img\cross.png" />
     <Content Include="AdminLte\img\edit.png" />
+    <Content Include="AdminLte\img\logo-pelindo3.png" />
+    <Content Include="AdminLte\img\port-gate-edited.jpg" />
     <Content Include="AdminLte\plugins\angular-bootstrap\angular-ui-tree.js" />
     <Content Include="AdminLte\plugins\angular-bootstrap\angular.ui.select2.js" />
     <Content Include="AdminLte\plugins\angular-bootstrap\angular.ui.select2.min.js" />
@@ -1084,6 +1094,41 @@
     <Content Include="AdminLte\plugins\select2\select2_locale_en.js.template" />
     <Content Include="Service\Setting\UserTable.ashx" />
     <Content Include="AdminLte\plugins\angularjs-table\ng-table.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="AdminLte\additionalcss\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="AdminLte\additionalcss\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="AdminLte\additionalcss\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="AdminLte\additionalcss\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\animated.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\bordered-pulled.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\core.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\fixed-width.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\font-awesome.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\icons.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\larger.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\list.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\mixins.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\path.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\rotated-flipped.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\stacked.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\less\variables.less" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\font-awesome.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_animated.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_bordered-pulled.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_core.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_fixed-width.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_icons.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_larger.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_list.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_mixins.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_path.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_rotated-flipped.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_stacked.scss" />
+    <Content Include="AdminLte\additionalcss\font-awesome\scss\_variables.scss" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\kaushanscript-regular-webfont.eot" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\kaushanscript-regular-webfont.ttf" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\kaushanscript-regular-webfont.woff" />
+    <Content Include="AdminLte\dist\fonts\kaushan-script\kaushanscript-regular-webfont.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1205,6 +1250,7 @@
     </Compile>
     <Compile Include="Service\Transaksi\DaftarFreePass.asmx.cs">
       <DependentUpon>DaftarFreePass.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Service\Transaksi\RekapPasHarian\RekapharianSvc.asmx.cs">
       <DependentUpon>RekapharianSvc.asmx</DependentUpon>
@@ -1226,6 +1272,7 @@
     </Compile>
     <Compile Include="Transaksi\DaftarFreePass.aspx.cs">
       <DependentUpon>DaftarFreePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Transaksi\DaftarFreePass.aspx.designer.cs">
       <DependentUpon>DaftarFreePass.aspx</DependentUpon>

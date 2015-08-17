@@ -7,7 +7,7 @@
     <title>Registrasi User</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <link href="AdminLte/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="AdminLte/additionalcss/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="AdminLte/additionalcss/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
