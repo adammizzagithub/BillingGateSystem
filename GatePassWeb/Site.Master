@@ -65,9 +65,10 @@
             text-align: center;
         }
     </style>
+    <link href="AdminLte/additionalcss/customize-style.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
-<body class="skin-black sidebar-mini">
+<body class="skin-black sidebar-mini fixed">
     <div class="wrapper">
         <%--BEGIN MAIN PLUGINS--%>
         <script src="AdminLte/plugins/jQuery/jQuery-2.1.4.min.js"></script>
@@ -111,7 +112,7 @@
         <asp:ContentPlaceHolder ID="BodyHeader" runat="server">
             <header class="main-header">
                 <!-- Logo -->
-                <a href="dashboard" class="logo"></a>
+                <a href="dashboard" class="logo kaushan-font">Billing Gate System   </a>
                 <!-- Header Navbar: style can be found in header.less -->
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
@@ -122,14 +123,22 @@
                         <ul class="nav navbar-nav">
                             <%--<!-- User Account: style can be found in dropdown.less -->--%>
                             <li class="dropdown user user-menu">
-                                <a href="javascript" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-circle text-success"></i>&nbsp;<span class="hidden-xs"><%=this.Session["Nama"]%></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="hidden-xs">
+                                        <i class="fa fa-user text-success"></i>&nbsp; &nbsp;<span class="hidden-xs"><%=this.Session["Nama"]%></span>
+                                    </span>
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu" style="width: 100px;">
+                                    <li class="user-footer">
+                                        <!--
+                                        <div class="pull-left">
+                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        </div>-->
+                                        <div class="center-block text-center">
+                                            <a href="auth-login?sLogOut=sgnout" class="btn btn-default btn-flat btn-sm"><i class="fa fa-unlock-alt"></i>&nbsp;Keluar</a>
+                                        </div>
+                                    </li>
                                 </ul>
-                            </li>
-                            <li class="dropdown user user-menu">
-                                <a href="auth-login?sLogOut=sgnout" class="btn btn-danger btn-flat">Keluar</a>
                             </li>
                         </ul>
                     </div>
