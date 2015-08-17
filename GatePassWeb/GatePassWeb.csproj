@@ -946,6 +946,8 @@
     <Content Include="Script\Setting\MenuSetting.js" />
     <Content Include="Script\Setting\RegisterUser.js" />
     <Content Include="Script\Setting\UserSetting.js" />
+    <Content Include="Script\Transaksi\DaftarFreePass.js" />
+    <Content Include="Script\Transaksi\RekapPasHarian.js" />
     <Content Include="Service\Master\GeneralReferensi\MstrGeneralRef.asmx" />
     <Content Include="Service\Master\Kendaraan\MstrKendaraan.asmx" />
     <Content Include="Service\Master\PegawaiOperator\MstrPegOpr.asmx" />
@@ -954,6 +956,10 @@
     <Content Include="Service\Setting\MenuSettingSvc.asmx" />
     <Content Include="Service\Setting\RegisterUserSvc.asmx" />
     <Content Include="Service\Setting\UserSettingSvc.asmx" />
+    <Content Include="Service\Transaksi\DaftarFreePass.asmx" />
+    <Content Include="Service\Transaksi\RekapPasHarian\RekapharianSvc.asmx" />
+    <Content Include="Transaksi\DaftarFreePass.aspx" />
+    <Content Include="Transaksi\RekapPasHarian\RekapPasHarian.aspx" />
     <Content Include="UserSetting.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -1197,6 +1203,13 @@
     <Compile Include="Service\Setting\UserTable.ashx.cs">
       <DependentUpon>UserTable.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Service\Transaksi\DaftarFreePass.asmx.cs">
+      <DependentUpon>DaftarFreePass.asmx</DependentUpon>
+    </Compile>
+    <Compile Include="Service\Transaksi\RekapPasHarian\RekapharianSvc.asmx.cs">
+      <DependentUpon>RekapharianSvc.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1210,6 +1223,19 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\DaftarFreePass.aspx.cs">
+      <DependentUpon>DaftarFreePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\DaftarFreePass.aspx.designer.cs">
+      <DependentUpon>DaftarFreePass.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Transaksi\RekapPasHarian\RekapPasHarian.aspx.cs">
+      <DependentUpon>RekapPasHarian.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Transaksi\RekapPasHarian\RekapPasHarian.aspx.designer.cs">
+      <DependentUpon>RekapPasHarian.aspx</DependentUpon>
     </Compile>
     <Compile Include="UserSetting.aspx.cs">
       <DependentUpon>UserSetting.aspx</DependentUpon>
@@ -1228,8 +1254,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Script\Transaksi\" />
-    <Folder Include="Service\Transaksi\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />

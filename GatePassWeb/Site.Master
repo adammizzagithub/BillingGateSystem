@@ -102,12 +102,12 @@
         <script type="text/javascript" src="Script/Master/Kendaraan.js"></script>
         <script type="text/javascript" src="Script/Master/PegawaiOperator.js"></script>
         <script type="text/javascript" src="Script/Master/Tarif.js"></script>--%>
-        <script type="text/javascript" src="Script/Lockscreen.js"></script>
+        <%--<script type="text/javascript" src="Script/Lockscreen.js"></script>
         <script>
             jQuery(document).ready(function () {
                 Lockscreen.init();
             });
-        </script>
+        </script>--%>
         <%--END SCRIPT PLUGINS--%>
         <asp:ContentPlaceHolder ID="BodyHeader" runat="server">
             <header class="main-header">

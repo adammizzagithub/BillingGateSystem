@@ -24,6 +24,10 @@ namespace BGSApps.Net.DapperFactory
                 "Password=" + ConfigurationManager.AppSettings["UserPassword"] + ";Min Pool Size=5;Max Pool Size=1100;";
             connection = new OracleConnection(connectionString);
         }
+        public OracleConnection GetConnection()
+        {
+            return this.connection;
+        }
         public DataTable GetListViewSuperQuery(string TableName, string orderby, string Wherecondition, List<KeyValuePair<string, object>> parameters, int offset, int limit)
         {
             DataTable dtable = new DataTable();

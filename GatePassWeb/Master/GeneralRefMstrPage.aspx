@@ -9,7 +9,7 @@
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="BodyContent" runat="server">
     <div class="content-wrapper" 
-         ng-app="GeneralRefApp" ng-controller="GeneralRefController">
+         ng-app="RekapPasHarianApp">
         <section class="content-header">
             <div class="row">
                 <div class="col-md-2">

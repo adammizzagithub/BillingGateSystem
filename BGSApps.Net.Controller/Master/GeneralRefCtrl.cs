@@ -13,7 +13,7 @@ namespace BGSApps.Net.Controller.Master
 
     public static class GeneralRefCtrl
     {
-        #region DATATABLE
+        #region DATATABLE 
         public static string[] GetDataGeneralRef(string jsonQueryString)
         {
             DataTable dt;

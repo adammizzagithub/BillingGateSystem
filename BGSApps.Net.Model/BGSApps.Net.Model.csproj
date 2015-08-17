@@ -56,6 +56,10 @@
     <Compile Include="Menu\JsonParamMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transaksi\BgstDaftarPasStiker.cs" />
+    <Compile Include="Transaksi\BgstRkpallPasHr.cs" />
+    <Compile Include="Transaksi\PeriodeBuku.cs" />
+    <Compile Include="Transaksi\SafrDivisi.cs" />
+    <Compile Include="Transaksi\VBgstTransHrNew.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
