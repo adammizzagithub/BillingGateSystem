@@ -14,8 +14,8 @@
 </head>
 <body class="lockscreen">
     <div class="lockscreen-wrapper">
-        <div class="lockscreen-logo">
-            <a href="javascript:;"><b>Billing Gate App.</b> <i class="fa fa-lock"></i></a>
+        <div class="lockscreen-logo kaushan-font">
+            <a href="javascript:;"><b>Billing Gate System</b> <i class="fa fa-lock"></i></a>
         </div>
         <div class="lockscreen-name"><%= this.Session["Nama"]%></div>
         <div class="lockscreen-item">
