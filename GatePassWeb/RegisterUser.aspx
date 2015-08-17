@@ -10,14 +10,24 @@
     <link href="AdminLte/additionalcss/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <link href="AdminLte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-
+    <link href="AdminLte/additionalcss/customize-style.css" rel="stylesheet" type="text/css" />
 </head>
 <body class="register-page"
     ng-app="RegisterUserApp" ng-controller="RegisterUserController">
     <input type="hidden" id="wsurl" name="wsurl" value="<%=this.ResolveUrl("~/Service/Setting/RegisterUserSvc.asmx")%>" />
     <div class="register-box">
-        <div class="register-logo">
-            <a href="javascript:;"><b>Register User</b></a>
+        <div class="register-logo kaushan-font">
+            <div class="row">
+                <div class="col-md-8 center-block" style="float: none!important;">
+                    <img src="AdminLte/img/logo-pelindo3.png" class="img-responsive" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h4 >PT. Pelabuhan Indonesia III (Persero)</h4>
+                </div>
+            </div>
+            <a href="javascript:;" style="color: white; text-shadow: 2px 1px 3px #5C5C5C; font-size: 0.7em;">Billing Gate System - Register User</a>
         </div>
         <div class="register-box-body">
             <div class="row">
@@ -46,7 +56,8 @@
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
+                    <div class="col-xs-8" style="padding-top: 8px;">
+                        <a href="/auth-login" class="text-center"><i class="fa fa-arrow-circle-o-left"></i>&nbsp;Kembali ke halaman Login</a>
                     </div>
                     <div class="col-xs-4">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">
@@ -54,7 +65,7 @@
                     </div>
                 </div>
             </form>
-            <a href="/auth-login" class="text-center">Kembali ke halaman Login</a>
+            
         </div>
     </div>
 
